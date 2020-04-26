@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>JokeBot</title>
+    <script src="bootstrap/js/jquery-3.5.0.min.js"></script>
+    <link href="bootstrap/css/style.css" rel="stylesheet">
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row justify-content-md-center mb-4">
+            <div class="col-md-6">
+
+                <!--start code-->
+                <div class="card">
+                    <div class="card-header">
+                        <form id="send-message" class="send-message-form">
+                            <div class="input-group">
+                                <input id="input-me" type="text" name="messages" class="form-control input-sm"
+                                    placeholder="Type your message here..." />
+                                <span class="input-group-append">
+                                    <button class="btn btn-primary" type="submit">Send</button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card-body messages-box">
+                        <ul class="list-unstyled messages-list">
+                            <li class="messages-bot clearfix">
+                                <span class="message-img img-circle">
+                                    <img src="bootstrap/img/jokeBotAvatar.jpg"
+                                        alt="JokeBot Avatar" class="avatar-sm border rounded-circle">
+                                </span>
+                                <div class="message-body clearfix">
+                                    <div class="message-header">
+                                        <strong class="messages-title">JokeBot</strong>
+                                        <small class="time-messages text-muted">
+                                            <span class="fas fa-time"></span>1 mins ago
+                                        </small>
+                                    </div>
+                                    <p class="messages-p">
+                                        Hi! How are you?
+                                    </p>
+                                </div>
+                            </li>
+                            <li class="messages-me clearfix">
+                                <span class="message-img">
+                                    <img src="bootstrap/img/meAvatar.jpg"
+                                        alt="User Avatar" class="avatar-sm border rounded-circle">
+                                </span>
+                                <div class="message-body clearfix">
+                                    <div class="message-header">
+                                        <strong class="messages-title">Me</strong>
+                                        <small class="time-messages text-muted">
+                                            <span class="fas fa-time"></span> <span class="minutes">1</span> mins ago
+                                        </small>
+                                    </div>
+                                    <p class="messages-p">
+                                        Hello! Nice to see you.
+                                    </p>
+                                </div>
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="row mb-4 mt-5">
+            <div class="col-12 text-center">
+                <p>JokeBot ver.1.0</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $('#send-message').on('submit', function (event) {
+        event.preventDefault();
+        var message = $('.messages-me').first().clone();
+        message.find('p').text($('#input-me').val());
+        $('#input-me').val('');
+        message.prependTo('.messages-list');
+        message.find('.minutes').text("0");
+    });
+</script>
+</html>
