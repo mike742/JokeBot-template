@@ -1,47 +1,48 @@
 .messages-box {
-/* max-height: 28rem; */
-overflow: auto;
+    max-height: 28rem; 
+    min-height: 28rem; 
+    overflow: auto;
 }
 
 .messages-title {
-float: right;
-margin: 0px 5px;
+    float: right;
+    margin: 0px 5px;
 }
 
 .message-img {
-float: right;
-margin: 0px 5px;
+    float: right;
+    margin: 0px 5px;
 }
 
 .message-header {
-text-align: right;
-width: 100%;
-margin-bottom: 0.5rem;
+    text-align: right;
+    width: 100%;
+    margin-bottom: 0.5rem;
 }
 
 .messages-list li.messages-bot .messages-title {
-float: left;
+    float: left;
 }
 
 .messages-list li.messages-bot .message-img {
-float: left;
+    float: left;
 }
 
 .messages-list li.messages-bot p {
-float: left;
-text-align: left;
+    float: left;
+    text-align: left;
 }
 
 .messages-list li.messages-bot .message-header {
-text-align: left;
+    text-align: left;
 }
 
 .messages-list li p {
-max-width: 60%;
-padding: 5px;
-border: #e6e7e9 1px solid;
+    max-width: 60%;
+    padding: 5px;
+    border: #e6e7e9 1px solid;
 }
 
-.messages-list li.messages-me p {
-float: right !important;
+.messages-list li.messages-user p {
+    float: right !important;
 }

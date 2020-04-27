@@ -15,22 +15,22 @@
             <div class="col-md-6">
 
                 <div class="card">
-                    <div class="card-header">
-                        <form id="send-message" class="send-message-form">
-                            <div class="input-group">
-                                <input id="input-me" type="text" name="messages" class="form-control input-sm"
-                                    placeholder="Type your message here..." />
-                                <span class="input-group-append">
-                                    <button class="btn btn-primary" type="submit">Send</button>
-                                </span>
-                            </div>
-                        </form>
-                    </div>
+
                     <div class="card-body messages-box">
                         <ul class="list-unstyled messages-list"></ul>
                     </div>
                 </div>
-
+                <div class="card-header">
+                    <form id="send-message" class="send-message-form">
+                        <div class="input-group">
+                            <input id="input-me" type="text" name="messages" class="form-control input-sm"
+                                placeholder="Type your message here..." />
+                            <span class="input-group-append">
+                                <button class="btn btn-primary" type="submit">Send</button>
+                            </span>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
 
@@ -56,20 +56,23 @@
         var text = $('#input-me').val();
         $('#input-me').val('');
 
-        //$(".messages-list").append(userMessage);
-        $(".messages-list").prepend(message);
+        $(".messages-list").append(message);
+        $('.messages-box').scrollTop($('.messages-box').prop("scrollHeight"));
+
         //debugger;
         if (text in knowledge) {
             setTimeout(() => {  
-                $(".messages-list").prepend(botMessage(knowledge[text]));
+                $(".messages-list").append(botMessage(knowledge[text]));
+                $('.messages-box').scrollTop($('.messages-box').prop("scrollHeight"));
                 }, 1000);
         }
         else {
             setTimeout(() => {  
-                $(".messages-list").prepend(botMessage("I don't understand..."));
+                $(".messages-list").append(botMessage("I don't understand..."));
+                $('.messages-box').scrollTop($('.messages-box').prop("scrollHeight"));
                 }, 1000);
         }
-
+        
     });
 
     function botMessage(message) {
